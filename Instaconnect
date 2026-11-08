@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>InstaConnect</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      color: #171717;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      background: white;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+    }
+    .logo { font-size: 25px; font-weight: bold; color: #7c3aed; }
+    .actions { font-size: 22px; }
+    .stories {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding: 15px;
+      background: white;
+      border-bottom: 1px solid #eee;
+    }
+    .story { text-align: center; min-width: 65px; font-size: 12px; }
+    .story img {
+      width: 58px; height: 58px; border-radius: 50%;
+      object-fit: cover; padding: 3px;
+      border: 2px solid #a855f7;
+    }
+    .post { background: white; margin: 12px 0; border-bottom: 1px solid #eee; }
+    .post-head { display: flex; align-items: center; padding: 12px; gap: 10px; }
+    .avatar { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; }
+    .post-image { width: 100%; display: block; aspect-ratio: 1/1; object-fit: cover; }
+    .post-actions { padding: 12px; font-size: 25px; }
+    .post-actions button { background: none; border: 0; font-size: 25px; }
+    .caption { padding: 0 12px 14px; font-size: 14px; }
+    nav {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      display: flex; justify-content: space-around;
+      padding: 14px 5px; background: white;
+      border-top: 1px solid #eee; font-size: 23px;
+    }
+    nav button { background: none; border: 0; font-size: 23px; }
+    main { padding-bottom: 70px; }
+    .notice { text-align: center; padding: 30px 20px; color: #666; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">InstaConnect</div>
+    <div class="actions">♡　✉</div>
+  </header>
+
+  <main>
+    <section class="stories">
+      <div class="story">
+        <img src="https://i.pravatar.cc/100?img=12" alt="Your profile">
+        <p>Your story</p>
+      </div>
+      <div class="story">
+        <img src="https://i.pravatar.cc/100?img=32" alt="Story">
+        <p>Olivia</p>
+      </div>
+      <div class="story">
+        <img src="https://i.pravatar.cc/100?img=45" alt="Story">
+        <p>Daniel</p>
+      </div>
+      <div class="story">
+        <img src="https://i.pravatar.cc/100?img=25" alt="Story">
+        <p>Sophia</p>
+      </div>
+      <div class="story">
+        <img src="https://i.pravatar.cc/100?img=15" alt="Story">
+        <p>James</p>
+      </div>
+    </section>
+
+    <section id="feed">
+      <article class="post">
+        <div class="post-head">
+          <img class="avatar" src="https://i.pravatar.cc/100?img=32" alt="">
+          <strong>olivia_m</strong>
+        </div>
+        <img class="post-image" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900" alt="Beautiful landscape">
+        <div class="post-actions">
+          <button onclick="likePost(this)">♡</button>
+          <button onclick="alert('Comments coming soon!')">♧</button>
+          <button onclick="alert('Sharing coming soon!')">↗</button>
+        </div>
+        <div class="caption"><strong>olivia_m</strong> Enjoying the little moments. ✨</div>
+      </article>
+
+      <article class="post">
+        <div class="post-head">
+          <img class="avatar" src="https://i.pravatar.cc/100?img=45" alt="">
+          <strong>daniel_travels</strong>
+        </div>
+        <img class="post-image" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900" alt="Mountain scenery">
+        <div class="post-actions">
+          <button onclick="likePost(this)">♡</button>
+          <button onclick="alert('Comments coming soon!')">♧</button>
+          <button onclick="alert('Sharing coming soon!')">↗</button>
+        </div>
+        <div class="caption"><strong>daniel_travels</strong> New places, new memories. 🌍</div>
+      </article>
+    </section>
+
+    <div class="notice">Welcome to your InstaConnect community.</div>
+  </main>
+
+  <nav>
+    <button onclick="showHome()">⌂</button>
+    <button onclick="alert('Discover coming soon!')">⌕</button>
+    <button onclick="alert('Photo uploads coming soon!')">＋</button>
+    <button onclick="alert('Messages coming soon!')">✉</button>
+    <button onclick="alert('Your profile coming soon!')">◎</button>
+  </nav>
+
+  <script>
+    const tg = window.Telegram?.WebApp;
+    if (tg) {
+      tg.ready();
+      tg.expand();
+    }
+
+    function likePost(button) {
+      button.textContent = button.textContent === '♡' ? '♥' : '♡';
+      button.style.color = button.textContent === '♥' ? '#e11d48' : '#171717';
+    }
+
+    function showHome() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
