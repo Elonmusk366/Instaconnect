@@ -29,6 +29,16 @@ header button{border:0;background:none;font-size:23px}
 main{padding-bottom:65px}
 .notice{padding:20px;text-align:center;color:#777;font-size:13px}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SUPABASE_URL = "https://hwoglyosectfcxoaklri.supabase.co";
+  const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";
+
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+</script>
 </head>
 <body>
 
