@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<title>InstaConnect</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fafafa;color:#222;font-family:Arial,sans-serif}
+header{position:sticky;top:0;background:white;border-bottom:1px solid #eee;padding:16px;display:flex;justify-content:space-between;align-items:center;z-index:5}
+.logo{font-size:25px;font-weight:bold;letter-spacing:-1px}
+header button{border:0;background:none;font-size:23px}
+.stories{display:flex;gap:14px;overflow-x:auto;background:white;padding:15px;border-bottom:1px solid #eee}
+.story{text-align:center;min-width:65px;font-size:12px}
+.story img{width:58px;height:58px;border-radius:50%;object-fit:cover;padding:3px;border:2px solid #e1306c}
+.post{background:white;margin:12px 0;border-top:1px solid #eee;border-bottom:1px solid #eee}
+.user{display:flex;align-items:center;gap:10px;padding:12px}
+.user img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.user strong{font-size:14px}
+.post-photo{width:100%;display:block;max-height:520px;object-fit:cover}
+.actions{display:flex;gap:18px;padding:12px;font-size:25px}
+.actions button{border:0;background:none;font-size:25px;padding:0}
+.caption{padding:0 13px 15px;font-size:14px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:13px;z-index:5}
+.bottom button{border:0;background:none;font-size:23px}
+main{padding-bottom:65px}
+.notice{padding:20px;text-align:center;color:#777;font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">InstaConnect</div>
+<div>
+<button onclick="alert('Messaging will be added soon')">✉</button>
+<button onclick="alert('Notifications will be added soon')">♡</button>
+</div>
+</header>
+
+<div class="stories">
+<div class="story"><img src="https://i.pravatar.cc/100?img=12"><div>Your story</div></div>
+<div class="story"><img src="https://i.pravatar.cc/100?img=32"><div>Sarah</div></div>
+<div class="story"><img src="https://i.pravatar.cc/100?img=45"><div>Michael</div></div>
+<div class="story"><img src="https://i.pravatar.cc/100?img=25"><div>Jessica</div></div>
+<div class="story"><img src="https://i.pravatar.cc/100?img=11"><div>Daniel</div></div>
+<div class="story"><img src="https://i.pravatar.cc/100?img=8"><div>Emma</div></div>
+</div>
+
+<main>
+<article class="post">
+<div class="user">
+<img src="https://i.pravatar.cc/100?img=32">
+<strong>sarah_official</strong>
+</div>
+<img class="post-photo" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900" alt="Beautiful mountain landscape">
+<div class="actions">
+<button onclick="like(this)">♡</button>
+<button onclick="comment()">♧</button>
+<button onclick="share()">➤</button>
+</div>
+<div class="caption"><strong>1,248 likes</strong><br><br><strong>sarah_official</strong> Enjoying the beautiful moments in life. ✨</div>
+</article>
+
+<article class="post">
+<div class="user">
+<img src="https://i.pravatar.cc/100?img=45">
+<strong>michael_travels</strong>
+</div>
+<img class="post-photo" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900" alt="Scenic travel destination">
+<div class="actions">
+<button onclick="like(this)">♡</button>
+<button onclick="comment()">♧</button>
+<button onclick="share()">➤</button>
+</div>
+<div class="caption"><strong>856 likes</strong><br><br><strong>michael_travels</strong> A new adventure begins! 🌍</div>
+</article>
+<div class="notice">You're viewing the InstaConnect demo feed.</div>
+</main>
+
+<nav class="bottom">
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})">⌂</button>
+<button onclick="alert('Discover coming soon')">⌕</button>
+<button onclick="alert('Photo uploads coming soon')">＋</button>
+<button onclick="alert('Reels coming soon')">▶</button>
+<button onclick="alert('Your profile coming soon')">☻</button>
+</nav>
+
+<script>
+function like(button){
+button.textContent=button.textContent==='♡'?'♥':'♡';
+button.style.color=button.textContent==='♥'?'#e1306c':'#222';
+}
+function comment(){alert('Comments will be added soon!');}
+function share(){if(navigator.share){navigator.share({title:'InstaConnect',text:'Check out InstaConnect!'});}else{alert('Sharing will be available soon.');}}
+if(window.Telegram && window.Telegram.WebApp){
+window.Telegram.WebApp.ready();
+window.Telegram.WebApp.expand();
+}
+</script>
+</body>
+</html>
